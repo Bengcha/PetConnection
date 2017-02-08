@@ -32,7 +32,7 @@ namespace PetConnection.Controllers
         public ActionResult Blog()
         {
             ViewBag.Message = "Your contact page.";
-            var x = db.PetData;
+            var x = db.PetDatas;
             return View(x);
         }
     }

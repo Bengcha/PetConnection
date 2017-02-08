@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
-@model IEnumerable<PetConnection.Models.PetData>
+@model PetConnection.Models.PetData
 @{
     ViewBag.Title = "Blog";
 }
@@ -12,6 +12,11 @@
         <tr>
             <td>
                 info.Type
+                info.sex
+                info.color
+                info.breed
+                info.age
+
             </td>
         </tr>
     </table>
