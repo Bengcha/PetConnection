@@ -24,4 +24,5 @@ namespace IndexTest
             Assert.IsNotNull(result);
         }
     }
+}
     
