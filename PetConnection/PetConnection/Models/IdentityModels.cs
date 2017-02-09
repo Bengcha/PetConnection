@@ -26,7 +26,6 @@ namespace PetConnection.Models
         }
         public DbSet<User> User { get; set; }
 
-        
 
         public DbSet<City> City { get; set; }
         public DbSet<States> States { get; set; }
