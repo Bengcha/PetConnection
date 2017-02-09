@@ -10,13 +10,13 @@ using PetConnection.Controllers;
 namespace UnitTest
 {
     [TestClass]
-    public class UserControllerTests
+    public class AdoptionControllerTests
     {
         [TestMethod]
         public void Index()
         {
             //Arrange
-            UserController controller = new UserController();
+            AdoptionController controller = new AdoptionController();
 
             //Act
             ViewResult result = controller.Index() as ViewResult;
@@ -26,4 +26,3 @@ namespace UnitTest
         }
     }
 }
-    
