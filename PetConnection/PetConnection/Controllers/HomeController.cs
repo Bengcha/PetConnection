@@ -68,6 +68,10 @@ namespace PetConnection.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Contract()
+        {
+            return View();
+        }
 
     }
 }

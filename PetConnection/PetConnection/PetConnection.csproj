@@ -310,6 +310,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Home\PetPost.cshtml" />
     <Content Include="Views\Home\Shelter.cshtml" />
+    <Content Include="Views\Home\Contract.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
