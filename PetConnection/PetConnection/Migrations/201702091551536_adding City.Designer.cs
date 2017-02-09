@@ -7,13 +7,13 @@ namespace PetConnection.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addingPetData : IMigrationMetadata
+    public sealed partial class addingCity : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addingPetData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addingCity));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702090531336_adding PetData"; }
+            get { return "201702091551536_adding City"; }
         }
         
         string IMigrationMetadata.Source

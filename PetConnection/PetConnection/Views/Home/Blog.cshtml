@@ -6,25 +6,32 @@
 
 <h2>Blog</h2>
 
+<table>
+    @foreach (var info in Model)
+    {
 
-@foreach(var info in Model)
-{
-    <table> 
         <tr>
             <td>
-               
-                info.Type;
-                info.sex;
-                info.color;
-                info.breed;
-                info.age;
+                
+                @info.Type;
+                @info.Sex;
+                @info.Color;
+                @info.Breed;
+                @info.Age;
 
             </td>
         </tr>
-    </table>
 
 
-}
+
+    }
+    <tr>
+        <td>
+            <p> hi</p>
+        </td>
+    </tr>
+</table>
+
 <p>Pet bloggers will totally change your life.</p>
 <p>Of all the millions of things to be obsessed with on the World Wide Web, pet blogs are by far our favorite. 
 They teach us how to keep our own pets healthy and happy, raise awareness for animals in need and even have a fun giveaway every now and again. 

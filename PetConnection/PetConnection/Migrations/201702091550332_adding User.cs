@@ -3,32 +3,44 @@ namespace PetConnection.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addinguser : DbMigration
+    public partial class addingUser : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.AspNetRoles",
+                "dbo.AdoptionStatus",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
+                        Id = c.Int(nullable: false, identity: true),
+                        PetIsAvailable = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.AspNetUserRoles",
+                "dbo.Cities",
                 c => new
                     {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity: true),
+                        CityName = c.String(),
                     })
-                .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.RoleId);
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.PetDatas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Type = c.String(),
+                        Sex = c.String(),
+                        Color = c.String(),
+                        Breed = c.String(),
+                        Age = c.Int(nullable: false),
+                        Size = c.String(),
+                        UserId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Users",
@@ -57,24 +69,6 @@ namespace PetConnection.Migrations
                 .Index(t => t.States_Id);
             
             CreateTable(
-                "dbo.AdoptionStatus",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        PetIsAvailable = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Cities",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CityName = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.States",
                 c => new
                     {
@@ -91,6 +85,29 @@ namespace PetConnection.Migrations
                         Zip = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -144,31 +161,34 @@ namespace PetConnection.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.PetDatas", "UserId", "dbo.Users");
             DropForeignKey("dbo.Users", "ZipCodeId", "dbo.ZipCodes");
             DropForeignKey("dbo.Users", "States_Id", "dbo.States");
             DropForeignKey("dbo.Users", "CityId", "dbo.Cities");
             DropForeignKey("dbo.Users", "AdoptionStatusId", "dbo.AdoptionStatus");
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Users", new[] { "States_Id" });
             DropIndex("dbo.Users", new[] { "AdoptionStatusId" });
             DropIndex("dbo.Users", new[] { "ZipCodeId" });
             DropIndex("dbo.Users", new[] { "CityId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.PetDatas", new[] { "UserId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.ZipCodes");
-            DropTable("dbo.States");
-            DropTable("dbo.Cities");
-            DropTable("dbo.AdoptionStatus");
-            DropTable("dbo.Users");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.ZipCodes");
+            DropTable("dbo.States");
+            DropTable("dbo.Users");
+            DropTable("dbo.PetDatas");
+            DropTable("dbo.Cities");
+            DropTable("dbo.AdoptionStatus");
         }
     }
 }

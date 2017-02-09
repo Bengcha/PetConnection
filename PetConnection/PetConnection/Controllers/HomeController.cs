@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Data.Entity;
+using System.Threading.Tasks;
 using PetConnection.Models;
 
 namespace PetConnection.Controllers
@@ -42,9 +39,32 @@ namespace PetConnection.Controllers
         public ActionResult Blog()
         {
             ViewBag.Message = "Your contact page.";
-            var user = _context.PetData.Include(z => z.Type).Include(y => y.Sex).Include(y => y.Color).Include(y => y.Breed).Include(y => y.Age).Include(y => y.Size).Include(y => y.UserId).ToList();
-            
-            return View(user);
+            //var user = _context.PetData.Include(y => y.Sex).Include(y => y.Color).Include(y => y.Breed).Include(y => y.Age).Include(y => y.Size).Include(y => y.UserId).ToList();
+            var x = db.PetData;
+            return View(x);
+        }
+        public ActionResult Shelter()
+        {
+            return View();
+        }
+        //public ActionResult PetPost()
+        //{
+           
+        //    return View();
+        //}
+        public ActionResult PetPost(PetData petdata)
+        {
+            PetData used = new PetData();
+            used = new PetData { Type = petdata.Type, Sex = petdata.Sex, Color = petdata.Color, Breed = petdata.Breed, Age = petdata.Age, Size = petdata.Size, UserId = 1 };
+            if (ModelState.IsValid)
+            {
+                db.Entry(petdata).State = EntityState.Modified;
+                db.PetData.Add(petdata);
+                //db.SaveChanges();
+                
+                return RedirectToAction("Index");
+            }
+            return View(petdata);
         }
 
 
