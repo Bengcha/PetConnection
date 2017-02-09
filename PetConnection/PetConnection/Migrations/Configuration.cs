@@ -1,5 +1,8 @@
 namespace PetConnection.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,7 +29,7 @@ namespace PetConnection.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-<<<<<<< HEAD
+
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             string[] roleNames = { "Admin", "User" };
             IdentityResult roleResult;
@@ -38,9 +41,8 @@ namespace PetConnection.Migrations
                 }
             }
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            UserManager.AddToRole("9f7237c0-b73f-48c1-be93-8064fafd1ea2", "Admin");
-=======
->>>>>>> 8e94d234e1dd6589087a57e785cf345797166363
+            UserManager.AddToRole("925cbcba-4b73-4d11-b8c4-93ddf16962c8", "Admin");
+
         }
     }
 }
