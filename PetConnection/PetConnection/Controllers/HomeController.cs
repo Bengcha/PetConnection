@@ -47,21 +47,23 @@ namespace PetConnection.Controllers
         {
             return View();
         }
-        //public ActionResult PetPost()
-        //{
-           
-        //    return View();
-        //}
+        public ActionResult PetPost()
+        {
+
+            return View();
+        }
+        [HttpPost]
         public ActionResult PetPost(PetData petdata)
         {
+
             PetData used = new PetData();
             used = new PetData { Type = petdata.Type, Sex = petdata.Sex, Color = petdata.Color, Breed = petdata.Breed, Age = petdata.Age, Size = petdata.Size, UserId = 1 };
             if (ModelState.IsValid)
             {
                 db.Entry(petdata).State = EntityState.Modified;
                 db.PetData.Add(petdata);
-                //db.SaveChanges();
-                
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(petdata);

@@ -7,17 +7,18 @@
 <h2>Blog</h2>
 
 <table>
+    <tr> Available Pets</tr>
     @foreach (var info in Model)
     {
 
         <tr>
             <td>
                 
-                @info.Type;
-                @info.Sex;
-                @info.Color;
-                @info.Breed;
-                @info.Age;
+                <p> Type of Pet:  @info.Type,
+                 Sex of Pet: @info.Sex,
+                 Color of the Pet: @info.Color,
+                 Breed of the Pet: @info.Breed,
+                 Age of Pet: @info.Age,</p>
 
             </td>
         </tr>

@@ -60,12 +60,17 @@ $.ajax({
   
   
   
- function testThis(shelID){
+ function testThis(shelID, Piee){
 $(document).ready(function(){
 	
 	var key = "6d2501374548411c2b0684ee900e7c62";
 	console.log(shelID);
-    var url = "http://api.petfinder.com/shelter.getPets?key="+ key + "&id="+ shelID + "&output=full&format=json&count=25";
+	console.log(Piee);
+	var arg = shelID.split(",");
+	 var totalOffset=0;
+	//var totalOffset = offsetCount + totalOffset;
+    var url = "http://api.petfinder.com/shelter.getPets?key="+ key + "&id="+ arg[0] + "&output=full&format=json&offset="+ arg[1]  ;
+	
     $.ajax({
         type : 'GET',
         data : {},
@@ -76,19 +81,32 @@ $(document).ready(function(){
             var result = '';
 
             var petfinder = data.petfinder;
-            
+			$('#tables').empty();
+            console.log(arg[1])
 			
-			if(petfinder != undefined){
+			
 		for(var i =0;i<petfinder.pets.pet.length;i++){
 			$('#tables').append(
 			"<tr>" +
-			"<td>" + petfinder.pets.pet[i].name["$t"]+ "</td>"+
+			"<td>  Name:" + petfinder.pets.pet[i].name["$t"]+ "</td>"+
+			"<td>  Age:" + petfinder.pets.pet[i].age["$t"]+ "</td>"+
+			"<td>  Sex:" + petfinder.pets.pet[i].sex["$t"]+ "</td>"+
+			"<td>  Size:" + petfinder.pets.pet[i].size["$t"]+ "</td>"+
+			
 			"<td>" + "<img src=" + petfinder.pets.pet[i].media.photos.photo[2]["$t"] + "></img>" +"</td>"+
-			"</tr>"
+			"</tr>" 
+			
+			
 			
 		);}
-            }
-			else{}
+		if(petfinder.pets.pet.length == 25){
+		$('#tables').append(
+		"<tr>"  +
+		"<td>" + "<button onclick=\"testThis('" + arg[0] +"," + petfinder.pets.pet.length +"')\" id='nextPage' class='btn btn-default'>NextPage</button>" + "</td>"
+		 + "</tr>"
+		);
+		}
+			
             console.log(petfinder);
 			
         },
@@ -134,7 +152,7 @@ function loggingZip(data){
 			"<td>" + shelt[i].id["$t"] + "</td>"+
 			"<td>" + shelt[i].name["$t"] + "</td>"+
 			"<td>" + shelt[i].zip["$t"] + "</td>"+
-			"<td>" + "<button onclick=\"testThis('" + shelt[i].id["$t"] + "')\" id='search' class='btn btn-default'>Search</button>" +
+			"<td>" + "<button onclick=\"testThis('" + shelt[i].id["$t"] + ", 0')\" id='search' class='btn btn-default'>Search</button>" +
 	"</tr>"
 			
 			
