@@ -1,0 +1,55 @@
+﻿@model PetConnection.ViewModel.UpdateInformation
+@{
+    ViewBag.Title = "updateInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+
+        <h2>User Information</h2>
+
+        @using (Html.BeginForm("Save", "User"))
+            {
+            <div class="form-group">
+                @Html.LabelFor(m => m.users.FirstName)
+                @Html.TextBoxFor(m => m.users.FirstName, new { @class = "form-control" })
+            </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.users.LastName)
+                    @Html.TextBoxFor(m => m.users.LastName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.users.PhoneNumber)
+                    @Html.TextBoxFor(m => m.users.PhoneNumber, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.users.EMail)
+                    @Html.TextBoxFor(m => m.users.EMail, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.users.Street)
+                    @Html.TextBoxFor(m => m.users.Street, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.users.City)
+                    @Html.TextBoxFor(m => m.users.City, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.users.States)
+                    @Html.TextBoxFor(m => m.users.States, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.users.ZipCode)
+                    @Html.TextBoxFor(m => m.users.ZipCode, new { @class = "form-control" })
+                </div>
+                @Html.HiddenFor(m => m.users.Id)
+                <button type="submit" class="btn btn-primary">Submit</button>
+        }
+
+
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>

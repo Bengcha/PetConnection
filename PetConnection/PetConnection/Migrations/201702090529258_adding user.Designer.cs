@@ -7,18 +7,18 @@ namespace PetConnection.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addingaddresses : IMigrationMetadata
+    public sealed partial class addinguser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addingaddresses));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addinguser));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702082155142_adding addresses"; }
+            get { return "201702090529258_adding user"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

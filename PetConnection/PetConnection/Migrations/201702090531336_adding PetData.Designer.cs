@@ -13,7 +13,7 @@ namespace PetConnection.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201702082200487_adding PetData"; }
+            get { return "201702090531336_adding PetData"; }
         }
         
         string IMigrationMetadata.Source
