@@ -20,5 +20,9 @@ namespace PetConnection.Models
         public string Size { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
+
+       
+
     }
+
 }
