@@ -1,0 +1,24 @@
+﻿@model PetConnection.Models.User
+
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+        <ul>
+
+            <li>First Name: @Model.FirstName</li>
+            <li>Last Name: @Model.LastName</li>
+            <li>Phone Number: @Model.PhoneNumber</li>
+            <li>Email Address: @Model.EMail</li>
+            <li>Address: @Model.Street</li>
+            <li>City: @Model.City</li>
+            <li>State: @Model.States</li>
+            <li>Zip Code: @Model.ZipCode</li>
+
+        </ul>
+
+        @Html.ActionLink("Update Your Information", "updateInformation", "User")
+        </div>
+</div>

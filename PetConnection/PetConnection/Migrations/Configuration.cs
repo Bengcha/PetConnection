@@ -29,6 +29,8 @@ namespace PetConnection.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             string[] roleNames = { "Admin", "User" };
             IdentityResult roleResult;
@@ -40,7 +42,7 @@ namespace PetConnection.Migrations
                 }
             }
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            UserManager.AddToRole("06f0c4d5-7afb-42b5-a495-a30525561942", "Admin");
+            UserManager.AddToRole("be118ac0-b7c5-471a-b517-30fa25d025f9", "Admin");
         }
     }
 }

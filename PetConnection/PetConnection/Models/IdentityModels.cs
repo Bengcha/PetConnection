@@ -24,8 +24,10 @@ namespace PetConnection.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        public DbSet<Address> Adresses { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<City> City { get; set; }
+        public DbSet<States> States { get; set; }
+        public DbSet<ZipCode> ZipCode { get; set; }
         public DbSet<PetData> PetData { get; set; }
         public DbSet<AdoptionStatus> AdoptionStatus { get; set; }
         public static ApplicationDbContext Create()
