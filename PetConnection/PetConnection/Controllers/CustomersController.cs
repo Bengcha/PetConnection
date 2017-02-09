@@ -74,7 +74,7 @@ namespace PetConnection.Controllers
         [HttpPost]
         public ActionResult Save(User user)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var viewModel = new CustomerFormViewModel
                 {
@@ -89,21 +89,22 @@ namespace PetConnection.Controllers
             }
 
             if (user.Id == 0)
+            {
                 _context.User.Add(user);
+            }
             else
             {
                 var customerInDb = _context.User.Single(c => c.Id == user.Id);
 
-                /*TryUpdateModel(customerInDb); */  //Malicious users can mess-up database
                 customerInDb.FirstName = user.FirstName;
                 customerInDb.LastName = user.LastName;
+                customerInDb.PhoneNumber = user.PhoneNumber;
+                customerInDb.EMail = user.EMail;
                 customerInDb.Street = user.Street;
                 customerInDb.CityId = user.CityId;
-                customerInDb.ZipCodeId = user.ZipCodeId;
                 customerInDb.StateId = user.StateId;
-                customerInDb.EMail = user.EMail;
-                customerInDb.AdoptionStatusId = user.AdoptionStatusId;
-                //Or use AutoMapper
+                customerInDb.ZipCodeId = user.ZipCodeId;
+
             }
             _context.SaveChanges();
             return RedirectToAction("Details", user);
