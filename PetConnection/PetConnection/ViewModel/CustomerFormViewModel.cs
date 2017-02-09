@@ -6,7 +6,7 @@ using PetConnection.Models;
 
 namespace PetConnection.ViewModel
 {
-    public class UpdateInformation
+    public class CustomerFormViewModel
     { 
         public User users { get; set; }
         public IEnumerable<City> Cities { get; set; }

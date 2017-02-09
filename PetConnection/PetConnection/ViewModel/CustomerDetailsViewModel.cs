@@ -6,7 +6,7 @@ using PetConnection.Models;
 
 namespace PetConnection.ViewModel
 {
-    public class UserDetail
+    public class CustomerDetailsViewModel
     {
 
         public User users { get; set; }
