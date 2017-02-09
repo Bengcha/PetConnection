@@ -25,14 +25,14 @@ namespace PetConnection.Models
         {
         }
         public DbSet<User> User { get; set; }
-<<<<<<< HEAD
-        public DbSet<PetData> PetDatas { get; set; }
-=======
+
+        
+
         public DbSet<City> City { get; set; }
         public DbSet<States> States { get; set; }
         public DbSet<ZipCode> ZipCode { get; set; }
         public DbSet<PetData> PetData { get; set; }
->>>>>>> e76261381afffa77b2708b44ea823f7265410651
+
         public DbSet<AdoptionStatus> AdoptionStatus { get; set; }
         public static ApplicationDbContext Create()
         {

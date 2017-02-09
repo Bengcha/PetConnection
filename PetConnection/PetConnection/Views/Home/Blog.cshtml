@@ -1,21 +1,23 @@
-﻿@using Microsoft.AspNet.Identity
-@model PetConnection.Models.PetData
+﻿
+@model  IEnumerable<PetConnection.Models.PetData>
 @{
     ViewBag.Title = "Blog";
 }
 
 <h2>Blog</h2>
 
+
 @foreach(var info in Model)
 {
     <table> 
         <tr>
             <td>
-                info.Type
-                info.sex
-                info.color
-                info.breed
-                info.age
+               
+                info.Type;
+                info.sex;
+                info.color;
+                info.breed;
+                info.age;
 
             </td>
         </tr>
