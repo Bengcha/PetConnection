@@ -29,11 +29,11 @@ namespace PetConnection.Controllers
             return View();
         }
 
-        public ActionResult Blog()
-        {
-            ViewBag.Message = "Your contact page.";
-            var x = db.PetData;
-            return View(x);
-        }
+        //public ActionResult Blog()
+        //{
+        //    //ViewBag.Message = "Your contact page.";
+        //    //var x = db.PetData;
+        //    //return View(x);
+        //}
     }
 }

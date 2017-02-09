@@ -205,32 +205,44 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702082155142_adding addresses.cs" />
-    <Compile Include="Migrations\201702082155142_adding addresses.Designer.cs">
-      <DependentUpon>201702082155142_adding addresses.cs</DependentUpon>
+    <Compile Include="Migrations\201702090529258_adding user.cs" />
+    <Compile Include="Migrations\201702090529258_adding user.Designer.cs">
+      <DependentUpon>201702090529258_adding user.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702082158437_adding User.cs" />
-    <Compile Include="Migrations\201702082158437_adding User.Designer.cs">
-      <DependentUpon>201702082158437_adding User.cs</DependentUpon>
+    <Compile Include="Migrations\201702090531336_adding PetData.cs" />
+    <Compile Include="Migrations\201702090531336_adding PetData.Designer.cs">
+      <DependentUpon>201702090531336_adding PetData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702082200487_adding PetData.cs" />
-    <Compile Include="Migrations\201702082200487_adding PetData.Designer.cs">
-      <DependentUpon>201702082200487_adding PetData.cs</DependentUpon>
+    <Compile Include="Migrations\201702090533362_adding AdoptionStatus.cs" />
+    <Compile Include="Migrations\201702090533362_adding AdoptionStatus.Designer.cs">
+      <DependentUpon>201702090533362_adding AdoptionStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702082202014_adding AdoptionStatus.cs" />
-    <Compile Include="Migrations\201702082202014_adding AdoptionStatus.Designer.cs">
-      <DependentUpon>201702082202014_adding AdoptionStatus.cs</DependentUpon>
+    <Compile Include="Migrations\201702090605464_adding City.cs" />
+    <Compile Include="Migrations\201702090605464_adding City.Designer.cs">
+      <DependentUpon>201702090605464_adding City.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702090607259_adding States.cs" />
+    <Compile Include="Migrations\201702090607259_adding States.Designer.cs">
+      <DependentUpon>201702090607259_adding States.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702090608485_adding ZipCode.cs" />
+    <Compile Include="Migrations\201702090608485_adding ZipCode.Designer.cs">
+      <DependentUpon>201702090608485_adding ZipCode.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AdoptionStatus.cs" />
+    <Compile Include="Models\City.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PetData.cs" />
+    <Compile Include="Models\States.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ZipCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\UserDetail.cs" />
+    <Compile Include="ViewModel\UpdateInformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-cerulean.css" />
@@ -294,7 +306,9 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
-    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\updateInformation.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -311,18 +325,23 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702082148209_User.cs.resx" />
-    <EmbeddedResource Include="Migrations\201702082155142_adding addresses.resx">
-      <DependentUpon>201702082155142_adding addresses.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702090529258_adding user.resx">
+      <DependentUpon>201702090529258_adding user.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702082158437_adding User.resx">
-      <DependentUpon>201702082158437_adding User.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702090531336_adding PetData.resx">
+      <DependentUpon>201702090531336_adding PetData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702082200487_adding PetData.resx">
-      <DependentUpon>201702082200487_adding PetData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702090533362_adding AdoptionStatus.resx">
+      <DependentUpon>201702090533362_adding AdoptionStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702082202014_adding AdoptionStatus.resx">
-      <DependentUpon>201702082202014_adding AdoptionStatus.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702090605464_adding City.resx">
+      <DependentUpon>201702090605464_adding City.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702090607259_adding States.resx">
+      <DependentUpon>201702090607259_adding States.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702090608485_adding ZipCode.resx">
+      <DependentUpon>201702090608485_adding ZipCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

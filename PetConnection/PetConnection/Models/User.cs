@@ -11,9 +11,14 @@ namespace PetConnection.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-        public Address Address { get; set; }
-        public int AddressID { get; set; }
+        public string Street { get; set; }
         public string EMail { get; set; }
+        public City City { get; set; }
+        public int CityId { get; set; }
+        public States States { get; set; }
+        public int StateId { get; set; }
+        public ZipCode ZipCode { get; set; }
+        public int ZipCodeId { get; set; }
         public AdoptionStatus AdoptionStatus { get; set; }
         public int AdoptionStatusId { get; set; }
     }
