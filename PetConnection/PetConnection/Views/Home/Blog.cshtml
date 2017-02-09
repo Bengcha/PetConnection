@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
-@model IEnumerable<PetConnection.Models.PetData>
+@model PetConnection.Models.PetData
 @{
     ViewBag.Title = "Blog";
 }
@@ -8,10 +8,15 @@
 
 @foreach(var info in Model)
 {
-    <table>
+    <table> 
         <tr>
             <td>
                 info.Type
+                info.sex
+                info.color
+                info.breed
+                info.age
+
             </td>
         </tr>
     </table>
