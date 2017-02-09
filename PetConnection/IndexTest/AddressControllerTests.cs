@@ -7,16 +7,17 @@ using System.Web.Mvc;
 using PetConnection;
 using PetConnection.Controllers;
 
-namespace UnitTest
+
+namespace IndexTest
 {
     [TestClass]
-    public class UserControllerTests
+    public class AddressControllerTests
     {
         [TestMethod]
         public void Index()
         {
             //Arrange
-            UserController controller = new UserController();
+            AddressController controller = new AddressController();
 
             //Act
             ViewResult result = controller.Index() as ViewResult;
@@ -26,4 +27,3 @@ namespace UnitTest
         }
     }
 }
-    
