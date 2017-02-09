@@ -86,7 +86,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ManageControllerTests.cs" />
     <Compile Include="AddressControllerTests.cs" />
-    <Compile Include="AdoptionControllerTests.cs" />
     <Compile Include="PetDataControllerTests.cs" />
     <Compile Include="UserControllerTests.cs" />
   </ItemGroup>

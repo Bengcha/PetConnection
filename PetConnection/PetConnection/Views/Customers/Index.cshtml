@@ -23,7 +23,9 @@
             @foreach (var user in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(user.LastName, "Edit", "User", new {id = user.Id, @*addressID = customer.Address.Id*@ }, null) </td>
+                    <td>@Html.ActionLink(user.LastName, "Edit", "User", new
+                   {
+                       id = user.Id, @*addressID = customer.Address.Id*@ }, null) </td>
                     <td>@Html.ActionLink(user.FirstName, "Details", "Customers", new { id = user.Id }, null) </td>
                     <td>@user.EMail</td>
                     <td>@user.Street</td>
@@ -36,39 +38,64 @@
     </table>
 }
 
+
+
 else
 {
+    <div class="row">
+        <div class="col-sm-4">
 
-    <table class="table table-condensed table-hover">
-        <thead>
-            <tr>
-                <th>Last Name (Edit)</th>
-                <th>First Name (Details)</th>
-                <th>E-Mail Address</th>
-                <th>Street</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zipcode</th>
+        </div>
 
 
-            </tr>
-        </thead>
-        <tbody>
-            @Html.ActionLink("Update Information", "New", null, new { @class = "btn btn-primary" })
+
+        <div class="col-sm-4">
+    <br /><br />
+    @Html.ActionLink("Update Information", "New", null, new { @class = "btn btn-primary" })
+    <br /><br />
+
+
+            <ul>
+
+<li><h3>Last Name:</h3></li>
+<li><h3>First Name:</h3></li>
+<li><h3>Email: </h3></li>
+<li><h3>Street Address:</h3></li>
+<li><h3>City:</h3></li>
+<li><h3>State:</h3></li>
+<li><h3>Zip Code:</h3></li>
+      </ul>
+
+
+
+            <table>
+
             @foreach (var user in Model)
             {
                 <tr>
                     <td>
-                        @Html.ActionLink(user.LastName, "Edit", "Customers", new {id = user.Id, @*addressID = customer.Address.Id*@ }, null)
+                        @Html.ActionLink(user.LastName, "Edit", "Customers", new
+                   {
+                       id = user.Id, @*addressID = customer.Address.Id*@ }, null)
                 </td>
                 <td>@Html.ActionLink(user.FirstName, "Details", "Customers", new { id = user.Id }, null) </td>
                 <td>@user.EMail</td>
+                <td>@user.PhoneNumber</td>
                 <td>@user.Street</td>
-                <td>@user.City.CityName</td>
-                <td>@user.States.StateName</td>
-                <td>@user.ZipCode.Zip</td>
+                <td>@user.CityId</td>
+                <td>@user.StateId</td>
+                <td>@user.ZipCodeId</td>
             </tr>
             }
-        </tbody>
-    </table>
+
+                </table>
+
+</div>
+
+
+    <div class="col-sm-4">
+
+    </div>
+        </div>
+
 }

@@ -205,6 +205,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+
     <Compile Include="Migrations\201702091550332_adding User.cs" />
     <Compile Include="Migrations\201702091550332_adding User.Designer.cs">
       <DependentUpon>201702091550332_adding User.cs</DependentUpon>
@@ -224,10 +225,10 @@
     <Compile Include="Migrations\201702091553012_adding PetData.cs" />
     <Compile Include="Migrations\201702091553012_adding PetData.Designer.cs">
       <DependentUpon>201702091553012_adding PetData.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AdoptionStatus.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -310,8 +311,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Address\" />
-    <Folder Include="Views\Adoption\" />
     <Folder Include="Views\PetData\" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +322,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+
     <EmbeddedResource Include="Migrations\201702091550332_adding User.resx">
       <DependentUpon>201702091550332_adding User.cs</DependentUpon>
     </EmbeddedResource>
@@ -337,6 +337,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702091553012_adding PetData.resx">
       <DependentUpon>201702091553012_adding PetData.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

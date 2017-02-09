@@ -19,7 +19,6 @@ namespace PetConnection.Models
         public int StateId { get; set; }
         public ZipCode ZipCode { get; set; }
         public int ZipCodeId { get; set; }
-        public AdoptionStatus AdoptionStatus { get; set; }
-        public int AdoptionStatusId { get; set; }
+
     }
 }

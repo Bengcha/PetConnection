@@ -32,7 +32,6 @@ namespace PetConnection.Models
         public DbSet<ZipCode> ZipCode { get; set; }
         public DbSet<PetData> PetData { get; set; }
 
-        public DbSet<AdoptionStatus> AdoptionStatus { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
